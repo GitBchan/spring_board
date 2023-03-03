@@ -54,7 +54,7 @@ public class PageRequestDTO {
                     e.printStackTrace();
                 }
             }
-            link = builder().toString();
+            link = builder.toString();
         }
         return link;
     }
