@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
       xmlns:th="http://www.thymeleaf.org"
       layout:decorate="~{layout/basic.html}">
 
@@ -27,7 +28,8 @@
 
                         <div class="input-group mb-3">
                             <span class="input-group-text">Writer</span>
-                            <input type="text" name="writer" class="form-control" placeholder="Writer">
+                            <input type="text" name="writer" class="form-control" placeholder="Writer"
+                                   th:value="${#authentication.principal.username}" readonly>
                         </div>
 
                         <div class="input-group mb-3">
@@ -83,6 +85,7 @@
 
     <script src="/js/upload.js"></script>
 </div>
+
 
 <script layout:fragment="script" th:inline="javascript">
 
@@ -158,7 +161,7 @@
         })
     })
 
-    document.querySelector(".submitBtn").addEventListener("click",function(e){
+    document.querySelector(".submitBtn").addEventListener("click", function (e) {
         e.preventDefault()
         e.stopPropagation()
 
@@ -168,7 +171,7 @@
 
         let str = ''
 
-        for(let i = 0; i < uploadFiles.length; i++){
+        for (let i = 0; i < uploadFiles.length; i++) {
             const uploadFile = uploadFiles[i]
             const imgLink = uploadFile.getAttribute("src")
             const target = imgLink.substring(imgLink.indexOf("_") + 1)

@@ -34,6 +34,7 @@
             <div class="card">
                 <div class="card-header">
                     Board List
+                    <button class="btn btn-outline-secondary float-end regBtn" type="button">REGISTER</button>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Board List</h5>
@@ -136,4 +137,11 @@
     if(result){
         modal.show()
     }
+
+    document.querySelector(".regBtn").addEventListener("click", function(e){
+        e.preventDefault()
+        e.stopPropagation()
+
+        self.location = `/board/register`
+    })
 </script>
