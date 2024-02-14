@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 @Log4j2
 @RequiredArgsConstructor
 @Transactional
-public class BoardServiceImpl implements BoardService {
+public class  BoardServiceImpl implements BoardService {
     private final ModelMapper modelMapper;
     private final BoardRepository boardRepository;
 
